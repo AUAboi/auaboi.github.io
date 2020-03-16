@@ -193,7 +193,7 @@ body{
 
 @media screen and (max-width: 510px){
     .quizContain {
-        height: 510px;
+        height: 580px;
         width: 300px;
         
     }
