@@ -193,15 +193,10 @@ body{
 
 @media screen and (max-width: 510px){
     .quizContain {
-        height: fit-content;
+        height: 510px;
         width: 300px;
         
     }
-
-    .choice {
-        padding: 15px;
-    } 
-
     .result{
         font-size: 16px;
         width: 300px;
