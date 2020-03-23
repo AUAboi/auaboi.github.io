@@ -49,7 +49,7 @@ let questions = [
         choiceC: "Sheeps",
         correct: "B"
     }, {
-        question: "How many Countries in The World are there>",
+        question: "How many Countries in The World are there?",
         choiceA: "195",
         choiceB: "155",
         choiceC: "175",
@@ -74,6 +74,7 @@ let questions = [
         correct: "B"
     }
 ];
+var reqScore = questions.length / 2;
 const lastQuestion = questions.length - 1;
 let runningQuestion = 0;
 
@@ -118,22 +119,19 @@ function checkAnswer(option) {
 
     if (selOP == 'undefined')
         if (option == 'A') {
-            choiceA.style.background = 'yellow';
-
+            choiceA.style.background = '#eff0dd';
             opSelect++;
             selOP = 'A';
         }
         else if (option == 'B') {
             selOP = 'B';
-     
             opSelect++;
-            choiceB.style.background = 'yellow';
+            choiceB.style.background = '#eff0dd';
         }
         else if (option == 'C') {
             selOP = 'C';
-         
             opSelect++;
-            choiceC.style.background = 'yellow';
+            choiceC.style.background = '#eff0dd';
         }
 
     if (selOP == questions[runningQuestion].correct) {
@@ -149,7 +147,6 @@ function checkAnswer(option) {
         rightAns = false;
     }
 }
-
 //Restart Game
 function restartGame() {
     restart.style.display = 'none';
@@ -235,6 +232,7 @@ function countDown() {
         time--;
     }
     else if (time === -4) {
+        
         if (runningQuestion < lastQuestion) {
             runningQuestion++;
             renderQuestion();
@@ -245,18 +243,21 @@ function countDown() {
             }
         }
         else if (runningQuestion == lastQuestion) {
-            if (score < questions.lenght / 2) {
+            if (score < reqScore) {
                 result.style.display = 'block';
                 result.style.background = 'red';
+                correctAns = false;
                 result.innerHTML = `<h1>You Lost</h1>
                 <span>You answered Less than Half of the Questions Correctly.</span>
                 <span>Click Restart to try again.</span>`;
             }
-            else if (score >= questions.lenght / 2) {
+            else if (score >= reqScore) {
+                prize = score * 10;
+                correctAns = false;
                 result.style.display = 'block';
-                result.style.background = 'green';
+                result.style.background = '#5eed4e';
                 result.innerHTML = `<h1>You Won</h1>
-                <span>You answered Less than Half of the Questions Correctly.</span>
+                <span>You answered Half or More than Half of the Questions Correctly. Your Prize is $${prize}</span>
                 <span>Click Restart to try again.</span>`;
             }
         }
