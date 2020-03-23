@@ -245,21 +245,19 @@ function countDown() {
             }
         }
         else if (runningQuestion == lastQuestion) {
-            if (score < questions.length / 2) {
+            if (score < questions.lenght / 2) {
                 result.style.display = 'block';
                 result.style.background = 'red';
                 result.innerHTML = `<h1>You Lost</h1>
                 <span>You answered Less than Half of the Questions Correctly.</span>
                 <span>Click Restart to try again.</span>`;
             }
-            else {
-                prize = score * 10;
+            else if (score >= questions.lenght / 2) {
                 result.style.display = 'block';
-                result.style.background = '#48e319';
-                result.innerHTML = `
-                    <h1>You Won</h1>
-                    <p>Congrats You Won $${prize} today</p>
-                    `
+                result.style.background = 'green';
+                result.innerHTML = `<h1>You Won</h1>
+                <span>You answered Less than Half of the Questions Correctly.</span>
+                <span>Click Restart to try again.</span>`;
             }
         }
     }
