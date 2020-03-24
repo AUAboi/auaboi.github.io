@@ -4,6 +4,7 @@ const restart = document.querySelector('.restart');
 const extra = document.querySelector('.extra');
 let timer = document.querySelector('.timer');
 let time = 10;
+var interval;
 const quizContain = document.querySelector('.quizContain');
 const quiz = document.querySelector('.quiz');
 const question = document.querySelector('.questions');
@@ -12,7 +13,7 @@ const choiceA = document.getElementById('A');
 const choiceB = document.getElementById('B');
 const choiceC = document.getElementById('C');
 const result = document.querySelector('.result');
-const prize = 0;
+var prize = 0;
 var scoreBoard = document.querySelector('.score');
 var score = 0;
 let gameOver = false;
@@ -85,10 +86,8 @@ function initGame() {
     start.style.display = 'none';
     renderQuestion(runningQuestion);
     restart.style.display = 'block';
-    time = 10;
     quizContain.style.display = 'block';
-    setInterval(countDown, 1000);
-
+    interval = setInterval(countDown, 1000);
 }
 
 //render question
@@ -200,6 +199,8 @@ function showAns(sel, corr) {
 
 //timer function
 function countDown() {
+    console.log(time);
+    
     if (time > 0) {
         time--;
         timer.style.display = 'block';
@@ -232,7 +233,6 @@ function countDown() {
         time--;
     }
     else if (time === -4) {
-        
         if (runningQuestion < lastQuestion) {
             runningQuestion++;
             renderQuestion();
@@ -243,13 +243,14 @@ function countDown() {
             }
         }
         else if (runningQuestion == lastQuestion) {
+            clearInterval(interval);
             if (score < reqScore) {
                 result.style.display = 'block';
-                result.style.background = 'red';
+                result.style.background = '#fc563d';
                 correctAns = false;
                 result.innerHTML = `<h1>You Lost</h1>
                 <span>You answered Less than Half of the Questions Correctly.</span>
-                <span>Click Restart to try again.</span>`;
+                <span>Click Restart to Try Again.</span>`;
             }
             else if (score >= reqScore) {
                 prize = score * 10;
