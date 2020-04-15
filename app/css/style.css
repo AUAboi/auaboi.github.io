@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #010001;
+    color: white;
+}
+
+.container {
+    margin: 0 30px;
+    text-align: center;
+}
+
+.header h1 {
+    text-align: center;
+}
+
+i {
+    margin-top: 120px;
+    font-size: 100px;
+}
+
+.active {
+    color: red;
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes  pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+       opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+i:hover {
+    opacity: 0.3;
+    transition: 0.25s;
+}
+
+.translation {
+    margin: 30px;
+}
+
+.translation p {
+    font-size: 34px;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.trans {
+    display: none;
+}
+
+.buffer {
+    text-align: center;
+}
+
+video {
+    
+    width: 300px;
+}
