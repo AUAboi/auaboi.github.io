@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="user-scalable=0;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <title>Heamo Smart Gold</title>
     <style>
@@ -10,8 +10,10 @@
         transform: translateX(1000%);
         animation: rollIn 1500ms linear forwards;
         }
-        html {
-            overflow-x: hidden;
+        body {
+            width: 100%;
+            overflow: hidden;
+            overflow-y: auto;
         }
         @keyframes rollIn{
             to{
