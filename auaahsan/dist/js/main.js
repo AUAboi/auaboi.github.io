@@ -11,7 +11,12 @@ window.onscroll = function () {
 };
 
 const burger = document.querySelector(".burger");
-
+const nav = document.querySelector(".nav-list");
 function toggle() {
   burger.classList.toggle("toggle");
+}
+
+function showNav() {
+  nav.classList.toggle("nav-active");
+  toggle();
 }
