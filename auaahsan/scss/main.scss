@@ -1,0 +1,169 @@
+@import "config";
+@import "nav";
+@import "work";
+@import "about";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font;
+  background-color: $primary-color;
+  color: $text-color;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color;
+}
+
+section {
+  margin-bottom: 100px;
+}
+
+// SASS FOR INTRO/HOME SECTION
+
+.hero {
+  background: $secondary-color;
+  display: flex;
+  -webkit-box-shadow: 9px 7px 26px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 9px 7px 26px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 9px 7px 26px -1px rgba(0, 0, 0, 0.75);
+  margin-top: 100px;
+
+  .intro {
+    width: 60%;
+    margin-top: 10vh;
+    padding: 3px;
+    margin-left: 50px;
+
+    h1 {
+      color: $text-color;
+      text-transform: uppercase;
+      font-size: 5rem;
+      font-weight: 300;
+      padding: 5px;
+    }
+
+    h2 {
+      color: #000;
+      font-weight: 900;
+      padding: 5px;
+    }
+
+    a {
+      display: inline-block;
+      position: relative;
+      padding: 15px 30px;
+      margin: 10px 15px;
+      color: #000;
+      background-color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 24px;
+      overflow: hidden;
+      transition: $transition;
+      text-decoration: none;
+
+      span {
+        position: absolute;
+        display: block;
+
+        &:nth-child(1) {
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(90deg, transparent, #000);
+        }
+
+        &:nth-child(3) {
+          bottom: 0;
+          right: -100%;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(270deg, transparent, #000);
+        }
+
+        &:nth-child(2) {
+          top: -100%;
+          right: 0;
+          width: 3px;
+          height: 100%;
+          background: linear-gradient(180deg, transparent, #000);
+        }
+
+        &:nth-child(4) {
+          bottom: -100%;
+          left: 0;
+          width: 3px;
+          height: 100%;
+          background: linear-gradient(360deg, transparent, #000);
+        }
+      }
+
+      &:hover {
+        color: $text-color;
+        transition-delay: 1s;
+        background-color: #1f1f1f;
+        box-shadow: 0 0 10px #000, 0 0 40px #000, 0 0 80px #000;
+
+        span:nth-child(1) {
+          left: 100%;
+          transition: 1s;
+        }
+
+        span:nth-child(3) {
+          right: 100%;
+          transition: 1s;
+          transition-delay: 0.5s;
+        }
+
+        span:nth-child(2) {
+          top: 100%;
+          transition: 1s;
+          transition-delay: 0.25s;
+        }
+
+        span:nth-child(4) {
+          bottom: 100%;
+          transition: 1s;
+          transition-delay: 0.75s;
+        }
+      }
+    }
+  }
+}
+
+.svg-contain {
+  text-align: right;
+  display: block;
+  width: 40%;
+
+  img {
+    margin-right: 160px;
+    width: 500px;
+    height: 500px;
+  }
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $secondary-color;
+  color: $text-color;
+  text-align: center;
+}
+
+@import "mobile";

@@ -1,0 +1,67 @@
+.logo {
+  margin: 10px 30px;
+
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+
+  div {
+    width: 20px;
+    height: 3px;
+    margin: 5px;
+    background: $secondary-color;
+    transition: all 0.5s ease;
+  }
+}
+
+#header {
+  background-color: #333;
+  /* Black background color */
+  position: fixed;
+  /* Make it stick/fixed */
+  top: 0;
+  /* Stay on top */
+  width: 100%;
+  /* Full width */
+  transition: top 0.3s;
+  /* Transition effect when sliding down (and up) */
+  z-index: 5;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    margin: 40px 20px;
+
+    a {
+      margin: 30px;
+      font-size: 1.4rem;
+      text-decoration: none;
+      color: $text-color;
+
+      &:hover {
+        color: $secondary-color;
+        transition: $transition;
+      }
+    }
+  }
+  li.active {
+    a {
+      transition: $transition;
+      color: $secondary-color;
+    }
+  }
+}

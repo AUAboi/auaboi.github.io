@@ -1,0 +1,43 @@
+// Sass Variables
+
+$primary-color: #1f1f1f;
+$text-color: #fff;
+$secondary-color: #b938eb;
+$font: "PT Sans Caption", sans-serif;
+$transition: all 0.5s ease-in-out;
+
+$xsmall: 429px;
+$small: 540px;
+$medium: 900px;
+$large: 1160px;
+$xlarge: 1400px;
+
+.sec-color {
+  color: $secondary-color;
+}
+
+@mixin xsmall {
+  @media screen and (max-width: $xsmall) {
+    @content;
+  }
+}
+@mixin small {
+  @media screen and (max-width: $small) {
+    @content;
+  }
+}
+@mixin meduim {
+  @media screen and (max-width: $medium) {
+    @content;
+  }
+}
+@mixin large {
+  @media screen and (max-width: $large) {
+    @content;
+  }
+}
+@mixin xlarge {
+  @media screen and (max-width: $xlarge) {
+    @content;
+  }
+}

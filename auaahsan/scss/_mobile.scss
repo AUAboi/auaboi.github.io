@@ -1,0 +1,217 @@
+@include large {
+  //NAVBAR
+  .logo {
+    margin: 10px 20px;
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+  .nav-list {
+    li {
+      margin: 40px 18px;
+
+      a {
+        margin: 15px;
+      }
+    }
+  }
+  //HOME SHOWCASE
+  section#home {
+    height: 50vh;
+  }
+
+  .hero {
+    height: 100%;
+
+    .intro {
+      margin-top: 4vh;
+      padding: 2px;
+      margin-left: 20px;
+
+      h1 {
+        margin-top: 40px;
+        font-size: 3.4rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      a {
+        font-size: 20px;
+      }
+    }
+  }
+  .svg-contain {
+    margin-top: 30px;
+    width: 30%;
+
+    img {
+      margin-right: 160px;
+      width: 400px;
+      height: 400px;
+    }
+  }
+}
+
+@include meduim {
+  //NAVBAR
+  .logo {
+    margin: 10px auto;
+
+    h1 {
+      font-size: 4rem;
+    }
+  }
+  .burger {
+    width: 30px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 40px;
+
+    .line {
+      margin: 7px;
+      width: 100%;
+    }
+  }
+  .toggle {
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+    .line1 {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .line2 {
+      opacity: 0;
+    }
+    .line3 {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+  }
+
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  ul.nav-list {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    position: absolute;
+    left: 0px;
+    height: 85vh;
+    top: 120px;
+    width: 100%;
+    opacity: 0;
+    background: $primary-color;
+    transform: translateX(-100%);
+    transition: transform ease-in 0.5s;
+
+    li {
+      margin: auto;
+      font-size: 2.3rem;
+    }
+  }
+  ul.nav-list.nav-active {
+    transition: $transition;
+    position: fixed;
+    opacity: 0.8;
+    transform: translateX(0%);
+  }
+  // HOME SHOWCASE
+
+  .svg-contain {
+    display: none;
+  }
+
+  .hero {
+    .intro {
+      text-align: center;
+      width: 100%;
+      padding: 2px;
+      margin-left: 20px;
+
+      h1 {
+        margin-top: 40px;
+        font-size: 3.4rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      a {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@include small {
+  //NAVBAR
+  .logo {
+    h1 {
+      font-size: 3.5rem;
+    }
+  }
+  .hero {
+    .intro {
+      text-align: center;
+      width: 100%;
+      margin: 5px;
+
+      h1 {
+        margin: 30px 0 0 0;
+        padding: 0;
+        font-size: 3rem;
+      }
+
+      h2 {
+        padding-top: 30px;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+      }
+
+      a {
+        margin-top: 3vh;
+      }
+    }
+  }
+}
+
+@include xsmall {
+  //NAVBAR
+  .logo {
+    margin: 20px auto;
+    h1 {
+      font-size: 2.3rem;
+    }
+  }
+
+  .burger {
+    top: 35px;
+    right: 10px;
+  }
+
+  //HOME SHOWCASE
+  .hero {
+    height: 46vh;
+
+    .intro {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1rem;
+        margin-bottom: 50px;
+      }
+    }
+  }
+}
