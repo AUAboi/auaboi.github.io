@@ -2,6 +2,7 @@
 @import "nav";
 @import "work";
 @import "about";
+@import "contact";
 
 * {
   margin: 0;
@@ -14,9 +15,10 @@ html {
 }
 
 body {
+  width: 100%;
   font-family: $font;
   background-color: $primary-color;
-  color: $text-color;
+  color: set-text-color($primary-color);
   overflow-x: hidden;
   line-height: 1.6;
 }
@@ -53,8 +55,8 @@ section {
       margin: auto;
       color: $text-color;
       text-transform: uppercase;
-      font-size: 5rem;
-      font-weight: 500;
+      font-size: 4.5rem;
+      font-weight: 700;
       padding: 5px;
     }
 
@@ -153,13 +155,13 @@ section {
 }
 
 .svg-contain {
-  text-align: right;
   display: block;
   width: 40%;
   margin: auto;
+  text-align: center;
 
   img {
-    margin-right: 160px;
+    margin: auto;
     width: 500px;
     height: 500px;
   }

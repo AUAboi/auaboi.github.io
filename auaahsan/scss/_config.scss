@@ -10,7 +10,7 @@ $xsmall: 429px;
 $small: 540px;
 $medium: 900px;
 $large: 1160px;
-$xlarge: 1400px;
+$xlarge: 1440px;
 
 .primary-heading {
   font-size: 6rem;
@@ -22,6 +22,14 @@ $xlarge: 1400px;
 
 .sec-color {
   color: $secondary-color;
+}
+
+@function set-text-color($bgColor) {
+  @if (lightness($bgColor) > 40) {
+    @return #1f1f1f;
+  } @else {
+    @return #fff;
+  }
 }
 
 @mixin xsmall {
