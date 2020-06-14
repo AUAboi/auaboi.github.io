@@ -66,6 +66,17 @@
       height: 250px;
     }
   }
+
+  //CONTACT SECTION
+  section#contact-container {
+    .container {
+      min-width: 900px;
+      min-height: 500px;
+      .contact-form {
+        width: 80%;
+      }
+    }
+  }
 }
 
 @include meduim {
@@ -205,6 +216,32 @@
       align-self: center;
     }
   }
+  //CONTACT SECTION
+  section#contact-container {
+    text-align: start;
+    -webkit-box-pack: start;
+
+    .container {
+      min-width: 600px;
+      min-height: 500px;
+
+      .contact-info {
+        height: 350px;
+        width: 350px;
+        padding: 20px;
+        position: absolute;
+        top: 43vh;
+        left: 30vw;
+      }
+
+      .contact-form {
+        margin-left: 50px;
+        margin-right: 0;
+        width: 80%;
+        padding: 50px;
+      }
+    }
+  }
 }
 
 @include small {
@@ -258,12 +295,39 @@
       }
     }
   }
+
+  //CONTACT SECTION
+  section#contact-container {
+    .container {
+      text-align: center;
+      .contact-form {
+        margin: 0;
+        height: fit-content;
+        padding: 100px;
+        padding-left: 60px;
+        .form-box {
+          flex-direction: column;
+          .input-box {
+            padding-top: 50px;
+            &.w50 {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .contact-info {
+        top: 80vh;
+        left: 10vw;
+      }
+    }
+  }
 }
 
 @include xsmall {
   //UTILITIES
   .primary-heading {
-    font-size: 3.6rem;
+    font-size: 3.3rem;
   }
 
   //NAVBAR
@@ -285,22 +349,22 @@
 
   //HOME SHOWCASE
   .hero {
-<<<<<<< HEAD
-    height: 96vh;
-=======
     height: 50vh;
->>>>>>> 8fe8ec5936335779b45da398764ebf6f0e944380
 
     .intro {
       height: 30vh;
+
       h1 {
-        margin-top: 30px;
+        margin-top: 20px;
         font-size: 2rem;
       }
+
       h2 {
         font-size: 1rem;
-        margin-bottom: 0px;
+        padding: 0;
+        margin: 0;
       }
+
       a {
         padding-bottom: auto;
         width: 200;
@@ -319,10 +383,10 @@
     li {
       width: 90px;
       height: 100px;
-      font-size: 10px;
+      font-size: 8px;
 
       p {
-        font-size: 14px;
+        font-size: 12px;
       }
     }
   }
@@ -330,6 +394,29 @@
     .potrait {
       width: 200px;
       height: 200px;
+    }
+  }
+
+  //CONTACT SECTION
+  section#contact-container {
+    .container {
+      min-width: 300px;
+      .contact-form {
+        width: 100%;
+        padding: 60px;
+
+        .form-box {
+          .input-box {
+            &.w100 {
+            }
+          }
+        }
+      }
+
+      .contact-info {
+        top: 100vh;
+        width: 250px;
+      }
     }
   }
 }

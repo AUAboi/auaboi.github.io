@@ -175,6 +175,7 @@ footer {
   background-color: $secondary-color;
   color: $text-color;
   text-align: center;
+  z-index: 1000;
 }
 
 @import "mobile";
