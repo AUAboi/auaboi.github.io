@@ -307,6 +307,8 @@
   section#contact-container {
     .container {
       text-align: center;
+      position: relative;
+
       .contact-form {
         margin: 0;
         height: fit-content;
@@ -324,6 +326,7 @@
       }
 
       .contact-info {
+        display: none;
         top: 80vh;
         left: 10vw;
       }
