@@ -194,8 +194,7 @@ section#contact-container {
             border-bottom: 1px solid #777;
             outline: none;
 
-            &:focus ~ span,
-            &:valid ~ span {
+            &:focus ~ span {
               transform: translateY(-50px);
               font-size: 12px;
               font-weight: 400;

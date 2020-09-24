@@ -168,7 +168,6 @@ section {
 }
 
 footer {
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -176,6 +175,21 @@ footer {
   color: $text-color;
   text-align: center;
   z-index: 1000;
+
+  .foot-contain {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+
+    .footer-contact {
+      display: flex;
+      flex-direction: row;
+
+      li {
+        margin: auto;
+      }
+    }
+  }
 }
 
 @import "mobile";
