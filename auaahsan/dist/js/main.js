@@ -21,12 +21,11 @@ function showNav() {
   toggle();
 }
 
-const body = document.querySelector(".body");
-const lightSwitch = document.querySelector(".light-switch");
-const darkSwitch = document.querySelector(".dark-switch");
-
 function switchColor() {
+  const body = document.querySelector(".body");
+  const lightSwitch = document.querySelector(".light-switch");
+  const darkSwitch = document.querySelector(".dark-switch");
   body.classList.toggle("light-mode");
-  lightSwitch.toggle("active");
-  darkSwitch.toggle("active");
+  lightSwitch.classList.toggle("active");
+  darkSwitch.classList.toggle("active");
 }
