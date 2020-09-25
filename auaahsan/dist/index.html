@@ -15,9 +15,13 @@
     <script src="../jquery-3.5.1.min.js"></script>
     <title>PortFolio</title>
   </head>
-  <body>
+  <body class="body">
     <header id="header">
       <nav class="top-nav">
+        <div class="switch-wrapper" onclick="switchColor()">
+          <i class="far fa-sun light-switch"></i>
+          <i class="fas fa-moon dark-switch active"></i>
+        </div>
         <div class="logo">
           <h1>Ahsan_<span class="sec-color">AUA</span></h1>
         </div>
@@ -26,6 +30,7 @@
           <div class="line2"></div>
           <div class="line3"></div>
         </div>
+
         <div id="navigation">
           <ul id="top-menu" class="nav-list">
             <li><a class="nav-link" href="#home">Home</a></li>

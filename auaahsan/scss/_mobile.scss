@@ -141,7 +141,7 @@
     top: 120px;
     width: 100%;
     opacity: 0;
-    background: $primary-color;
+    background: var(--primary-color);
     transform: translateX(-100%);
     transition: transform ease-in 0.5s;
 
@@ -355,6 +355,10 @@
   .burger {
     top: 35px;
     right: 10px;
+  }
+
+  .switch-wrapper {
+    margin: auto 0.1em;
   }
 
   //HOME SHOWCASE

@@ -20,3 +20,12 @@ function showNav() {
   nav.classList.toggle("nav-active");
   toggle();
 }
+
+function switchColor() {
+  const body = document.querySelector(".body");
+  const lightSwitch = document.querySelector(".light-switch");
+  const darkSwitch = document.querySelector(".dark-switch");
+  body.classList.toggle("light-mode");
+  lightSwitch.classList.toggle("active");
+  darkSwitch.classList.toggle("active");
+}
