@@ -199,7 +199,6 @@ function showAns(sel, corr) {
 
 //timer function
 function countDown() {
-    console.log(time);
     
     if (time > 0) {
         time--;
