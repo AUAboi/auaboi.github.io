@@ -19,10 +19,6 @@ export function inputDirection() {
   return input;
 }
 
-hammertime.on("pan", function (ev) {
-  console.log(ev);
-});
-
 //Setting inputs
 window.addEventListener("keydown", (e) => {
   if (e.key === "ArrowUp" && lastInput.y === 0) {
@@ -48,23 +44,35 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-hammertime.on("swipe", (e) => {
-  if (e.swipe === "swipeup" && lastInput.y === 0) {
+hammertime.on("swipeup", () => {
+  if (lastInput.y === 0) {
     input = {
       x: 0,
       y: -1,
     };
-  } else if (e.key === "swipedown" && lastInput.y === 0) {
+  }
+});
+
+hammertime.on("swipedown", () => {
+  if (lastInput.y === 0) {
     input = {
       x: 0,
       y: 1,
     };
-  } else if (e.key === "swipeleft" && lastInput.x === 0) {
+  }
+});
+
+hammertime.on("swipeleft", () => {
+  if (lastInput.x === 0) {
     input = {
       x: -1,
       y: 0,
     };
-  } else if (e.key === "swiperight" && lastInput.x === 0) {
+  }
+});
+
+hammertime.on("swiperight", () => {
+  if (lastInput.x === 0) {
     input = {
       x: 1,
       y: 0,
