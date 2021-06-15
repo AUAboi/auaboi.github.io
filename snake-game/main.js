@@ -15,7 +15,7 @@ let isDead = false;
 function gameLoop(currentTime) {
   if (isDead) {
     if (confirm(`Your score is ${score}. Press ok to restart`)) {
-      window.location = "/";
+      window.location.reload();
     }
     return;
   }
