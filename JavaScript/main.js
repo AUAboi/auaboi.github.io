@@ -10,7 +10,7 @@ const highest = document.querySelector(".highscore");
 var highscore = 5; //Default HighScore
 const scoreboard = {
   player: 0,
-  computer: 0
+  computer: 0,
 };
 
 //Playing Function
@@ -27,9 +27,9 @@ function play(event) {
   }
 }
 
-function checkName(){
-    modal.style.display = "block";
-    result.innerHTML = `<h2>Hold Up a Sec!!!</h2>
+function checkName() {
+  modal.style.display = "block";
+  result.innerHTML = `<h2>Hold Up a Sec!!!</h2>
         <i id="paper" class="paperHand fas fa-hand-paper fa-10x"></i>
         <p>Enter a Name or Something if You Really Wanna Play</p>
         `;
@@ -48,28 +48,27 @@ function getComputerChoice() {
 }
 //winner
 function getWinner(p, c) {
-
-    if (p === c) {
-        return "Draw";
-    } else if (p === "rock") {
-        if (c === "paper") {
-            return "computer";
-        } else {
-            return "player";
-        }
-    } else if (p === "paper") {
-        if (c === "rock") {
-            return "player";
-        } else {
-            return "computer";
-        }
-    } else if (p === "scissors") {
-        if (c === "rock") {
-            return "computer";
-        } else {
-            return "player";
-        }
+  if (p === c) {
+    return "Draw";
+  } else if (p === "rock") {
+    if (c === "paper") {
+      return "computer";
+    } else {
+      return "player";
     }
+  } else if (p === "paper") {
+    if (c === "rock") {
+      return "player";
+    } else {
+      return "computer";
+    }
+  } else if (p === "scissors") {
+    if (c === "rock") {
+      return "computer";
+    } else {
+      return "player";
+    }
+  }
 }
 
 //ScoreBoard
@@ -79,22 +78,26 @@ function showWinner(winner, computerChoice) {
     result.innerHTML = `
                 <h2>You WON!</h2>
                 <i id="rock" class="fas fa-hand-${computerChoice} fa-10x"></i>
-                <p>Computer Chose ${computerChoice.charAt(0).toUpperCase() +
-                  computerChoice.slice(1)}</strong></p>`;
+                <p>Computer Chose ${
+                  computerChoice.charAt(0).toUpperCase() +
+                  computerChoice.slice(1)
+                }</strong></p>`;
   } else if (winner === "computer") {
     scoreboard.computer++;
     result.innerHTML = `
         <h2>You LOST!</h2>
         <i id="rock" class="fas fa-hand-${computerChoice} fa-10x"></i>
-        <p>Computer Chose ${computerChoice.charAt(0).toUpperCase() +
-          computerChoice.slice(1)}</strong></p>
+        <p>Computer Chose ${
+          computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
+        }</strong></p>
 `;
   } else {
     result.innerHTML = `
         <h2>Its A DRAW!</h2>
         <i id="rock" class="fas fa-hand-${computerChoice} fa-10x"></i>
-        <p>Computer Chose ${computerChoice.charAt(0).toUpperCase() +
-          computerChoice.slice(1)}</strong></p>
+        <p>Computer Chose ${
+          computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
+        }</strong></p>
 `;
   }
   //Scoreboard Show
@@ -126,18 +129,16 @@ function clearModal(event) {
 
 //
 function onSubmit(e) {
-    e.preventDefault();
-    if(inputName.value == ""){
-        checkName();
-    }else{
-        
-        score.innerHTML = `
+  e.preventDefault();
+  if (inputName.value == "") {
+    checkName();
+  } else {
+    score.innerHTML = `
         <p>${inputName.value}: 0</p>
         <p id='comp'>Computer: 0</p>
         `;
-        myForm.style.display = "none";
-    }
-    
+    myForm.style.display = "none";
+  }
 }
 
 //HighScore
@@ -166,10 +167,9 @@ function gameEnd() {
   }
 }
 
-
-
 //Event Listeners
-choices.forEach(choice => choice.addEventListener("click", play));
+choices.forEach((choice) => choice.addEventListener("click", play));
+
 window.addEventListener("click", clearModal);
 restart.addEventListener("click", restartGame);
 myForm.addEventListener("submit", onSubmit);
