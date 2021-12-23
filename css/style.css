@@ -148,6 +148,7 @@ body {
 }
 
 @media screen and (max-width: 500px) {
+<<<<<<< HEAD
   html {
     margin: 0px;
   }
@@ -171,4 +172,33 @@ body {
   .choices i {
     font-size: 80px;
   }
+=======
+    html {
+        margin: 0px;
+    }
+    body {
+        margin: 0px;
+    }
+    .header h2 {
+        
+        font-size: 30px;
+    }
+
+    .score {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .choices {
+        gap: 1px;
+        margin-left: 0px;
+    }
+
+    .choices i {
+        font-size: 80px;
+    }
+
+    
+>>>>>>> 85604b85b10d1e0d2c22efb01be2ac8b0e582c85
 }
