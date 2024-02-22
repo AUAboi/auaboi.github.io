@@ -838,9 +838,13 @@
         .pricing-option .pricing h3 {
           font-size: 2em;
         }
+        .pricings {
+          gap: 30px;
+        }
 
         .pricing-option {
           padding: 24px 12px;
+          min-width: 320px;
         }
         .pricing-feature {
           font-size: 0.8em;
@@ -856,7 +860,15 @@
           font-size: 16px;
         }
         .pricing-option {
-          min-width: 320px;
+          min-width: 260px;
+        }
+      }
+      @media screen and (max-width: 360px) {
+        .pricings {
+          gap: 12px;
+        }
+        .pricing-option {
+          min-width: 245px;
         }
       }
 
