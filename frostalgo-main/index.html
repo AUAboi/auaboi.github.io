@@ -82,10 +82,13 @@
           height: 100vh;
           width: 50%;
           justify-content: center;
-          background-color: var(--main);
           padding: 0 20px;
           transform: translateX(-100%);
           transition: all 250ms;
+          backdrop-filter: blur(5px);
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+          background: #191b25d4;
         }
 
         .header .buttons.active {
@@ -214,8 +217,16 @@
             }
 
             @media screen and (max-width: 540px) {
+              .tri-data {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+              }
+
               .tri-data .data h3 {
                 font-size: 1.2em;
+              }
+              .data {
+                width: 100% !important;
               }
 
               .subtitle {
@@ -1676,16 +1687,23 @@
     </style>
     <script>
       const burgerMenu = document.querySelector(".burger-menu");
+      const navContainer = document.querySelector(".header");
       const navigation = document.querySelector(".header .buttons");
       const navItems = document.querySelectorAll(".header .buttons a");
 
       burgerMenu.addEventListener("click", () => {
         navigation.classList.toggle("active");
+        navContainer.style.backdropFilter = navigation.classList.contains(
+          "active"
+        )
+          ? "unset"
+          : "blur(5px)";
       });
 
       navItems.forEach((i) => {
         i.addEventListener("click", () => {
           navigation.classList.remove("active");
+          navContainer.style.backdropFilter = "blur(5px)";
         });
       });
     </script>
