@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2">
+    <title>Frost Algo</title>
+    <link rel="icon" type="image/png"
+        href="https://cdn.discordapp.com/attachments/1135752846810284063/1136747876232466552/50_smaller.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer>
+        $(document).ready(function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        $(entry.target).addClass('show');
+                        observer.unobserve(entry.target); // Stop observing after revealing
+                    }
+                });
+            });
+
+            $('.hidden').each((index, el) => observer.observe(el));
+        });
+
+
+    </script>
+    <style>
+        .hidden {
+            opacity: 0;
+            filter: blur(5px);
+            transform: translateX(-100%);
+            transition: all 1s;
+        }
+
+        .show {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+        }
+    </style>
+</head>
+
+<body>
+    <style>
+        .header {
+            position: fixed;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            width: calc(100%);
+            gap: 112px;
+            background: var(--main-t);
+            z-index: 623;
+            padding: 12px 42px;
+            align-items: center;
+            /* border-radius: 24px; */
+            /* border: solid var(--mainll) 1px; */
+            backdrop-filter: blur(5px);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        }
+
+        .header .buttons {
+            display: flex;
+            gap: 56px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .header .logo img {
+            width: 32px;
+        }
+    </style>
+    <div class="header">
+        <div class="logo">
+            <img src="https://cdn.discordapp.com/attachments/1135752846810284063/1136747876232466552/50_smaller.png"
+                alt="">
+        </div>
+        <div class="buttons">
+            <a href="#how-to">How it works</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+        </div>
+    </div>
+    <div class="section ">
+        <div class="section-content sided hidden">
+            <div class="info">
+                <h1>
+                    <div class="content">
+                        Trading Made <strong class="gradient-text">Simple</strong>.
+
+                        <div class="graphic square rotated">
+
+                        </div>
+                    </div>
+                </h1>
+                <p class="subtitle" style="margin-bottom: 24px;">Simplify Your Trading with Our Crypto Indicator
+                </p>
+                <div class="button-set">
+                    <a href="https://frostalgo.mysellix.io/" class="action" target="_blank">
+                        <button><i class="fa-solid fa-play"></i> Get Frost Algo</button>
+                      </a>
+                      
+                      <a href="https://discord.gg/frostalgo" target="_blank">
+                    <button><i class="fa-brands fa-discord"></i> Join Discord</button> </a>
+                    
+                </div>
+                <style>
+                    .tri-data {
+                        margin-top: 42px;
+                        display: flex;
+                        width: 100%;
+                        justify-content: center;
+                    }
+
+                    .tri-data .data {
+                        text-align: center;
+                        width: max-content;
+                    }
+
+                    .tri-data .data h3 {
+                        font-weight: 500;
+                        font-size: 1.8em;
+                    }
+                </style>
+                <div class="tri-data">
+                    <div class="data">
+                        <h3>86%+</h3>
+                        <p class="subtitle">Backtest Accuracy</p>
+                    </div>
+                    <div class="data">
+                        <h3>5/5</h3>
+                        <p class="subtitle">Star Reviews</p>
+                    </div>
+                    <div class="data">
+                        <h3>60+ </h3>
+                        <p class="subtitle">Features</p>
+                    </div>
+                </div>
+            </div>
+            <div class="graphic ">
+
+
+                <img src="https://media.discordapp.net/attachments/1135752846810284063/1139305353562038292/Noformejums_bez_nosaukuma_11.png"
+                    alt="">
+            </div>
+        </div>
+
+
+        <div class="background bgwv">
+            <div class="blob" style="right: 0; top: 12%; transform: translateX(-50%);">
+
+            </div>
+            <svg fill="none" style="opacity: 0.5;" height="800px" width="800px" version="1.1" id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 489.6 489.6"
+                xml:space="preserve">
+                <g>
+                    <g>
+                        <path stroke="var(--text)" stroke-width="0.5" d="M470.758,288L470.758,288l-77.9,34.2l-128.7-77.2l128.7-77.2l77.9,34.2c1.3,0.6,2.7,0.8,4,0.8c3.8,0,7.5-2.2,9.2-6
+			c2.2-5.1-0.1-11-5.1-13.2l-64.9-28.5l45.2-27.1c4.7-2.8,6.3-9,3.4-13.7c-2.9-4.7-9-6.3-13.7-3.4l-46.1,27.7l7.5-70.2
+			c0.6-5.5-3.4-10.4-8.9-11s-10.4,3.4-11,8.9l-9.1,85.2l-126.4,75.9V77.5l69.2-49.1c4.5-3.2,5.6-9.4,2.4-13.9s-9.4-5.6-13.9-2.4
+			l-57.6,40.9V10c0-5.5-4.5-10-10-10s-10,4.5-10,10v42.5l-57.7-40.5c-4.5-3.2-10.8-2.1-13.9,2.4c-3.2,4.5-2.1,10.8,2.4,13.9
+			l69.1,48.5v150.4l-127.2-76.4l-8.2-84.7c-0.5-5.5-5.4-9.5-10.9-9s-9.5,5.4-9,10.9l6.8,69.9l-45.5-27.3c-4.7-2.8-10.9-1.3-13.7,3.4
+			c-2.8,4.7-1.3,10.9,3.4,13.7l45,27l-64.7,28.7c-5,2.2-7.3,8.1-5.1,13.2c1.7,3.7,5.3,6,9.1,6c1.4,0,2.7-0.3,4-0.9l77.5-34.4
+			l129,77.4l-129,77.4l-77.5-34.4c-5.1-2.2-11,0-13.2,5.1c-2.2,5,0,11,5.1,13.2l64.7,28.7l-45,27c-4.7,2.8-6.3,9-3.4,13.7
+			c1.9,3.1,5.2,4.9,8.6,4.9c1.8,0,3.5-0.5,5.1-1.4l45.5-27.3l-6.8,69.9c-0.5,5.5,3.5,10.4,9,10.9c0.3,0,0.7,0,1,0
+			c5.1,0,9.4-3.9,9.9-9l8.2-84.7l127.2-76.4v154.8l-68.8,43.9c-4.7,3-6,9.2-3.1,13.8c1.9,3,5.1,4.6,8.4,4.6c1.8,0,3.7-0.5,5.4-1.6
+			l58-37v38.8c0,5.5,4.5,10,10,10s10-4.5,10-10v-39.2l58,37.4c4.6,3,10.8,1.7,13.8-3c3-4.7,1.7-10.8-3-13.8l-68.7-44V262.6
+			l126.4,75.9l9.1,85.2c0.5,5.1,4.9,8.9,9.9,8.9c0.4,0,0.7,0,1.1-0.1c5.5-0.6,9.5-5.5,8.9-11l-7.5-70.2l46.1,27.7
+			c1.6,1,3.4,1.4,5.1,1.4c3.4,0,6.7-1.7,8.6-4.9c2.8-4.7,1.3-10.9-3.4-13.7l-45.2-27.1l64.9-28.5c5.1-2.2,7.4-8.1,5.1-13.2
+			C481.658,288.1,475.758,285.8,470.758,288z" />
+                    </g>
+                </g>
+            </svg>
+
+        </div>
+    </div>
+
+    <div class="section" id="how-to">
+        <h1 class="title hidden">How it works</h1>
+        <p class="subtitle hidden" style="margin-bottom: 32px;">How Our Crypto Trading Indicator Works
+        </p>
+        <style>
+            .howto-container {
+                margin: auto;
+
+                border-radius: 12px;
+                padding: 2px;
+                background: linear-gradient(to right, var(--accent-3), var(--accentg));
+                display: grid;
+                z-index: 600;
+                overflow: hidden;
+                position: relative;
+            }
+
+
+            @media screen and (max-width:762px) {
+                .howto-container {
+                    width: 80vw !important;
+                    margin-top: 32px;
+                }
+
+                .howto-image img {
+                    width: 100% !important;
+                }
+
+                .howtos {
+                    display: grid;
+                    margin: 0 0px 0 24px;
+                    gap: 56px;
+                }
+            }
+
+            @media screen and (min-width:762px) {
+                .howto-container {
+                    max-width: 50vw !important;
+                    margin-top: 32px;
+                }
+
+                .howto-image img {
+                    width: 100% !important;
+                }
+
+                .howtos {
+                    margin: 0 112px;
+                    gap: 32px;
+                }
+            }
+
+            .howto-inner {
+                padding: 42px 24px;
+                border-radius: 12px;
+                display: flex;
+                flex-flow: column;
+                background: var(--maindd);
+                justify-content: center;
+
+
+            }
+
+            .howto-content {
+                position: relative;
+                z-index: 2;
+                width: 100%;
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .howto-background {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 1;
+            }
+
+            .howto-background .blob {
+
+                /* background: var(--gold); */
+            }
+
+            .howto-inner .howto-title {
+                display: inline;
+                font-size: 2em;
+
+                text-align: center;
+
+                /* margin-bottom: 24px; */
+                font-weight: 500;
+            }
+
+            .howto-inner .howto-title strong {
+                font-weight: 500;
+            }
+
+            .gradient-text {
+
+
+                background: linear-gradient(45deg, var(--accent-2), var(--text));
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text;
+
+            }
+
+            .howto-image {
+                text-align: center;
+            }
+        </style>
+        <div class="howtos">
+            <div class="howto-container hidden">
+                <div class="howto-inner">
+                    <div class="howto-content">
+                        <h3 class="howto-title">
+                            Make a <strong class="gradient-text">free</strong> account on the TradingView platform
+                        </h3>
+
+                        <div class="howto-image"><img
+                                src="frostalgo-main/tradingview.png"
+                                alt=""></div>
+                    </div>
+
+                    <div class="howto-background">
+                        <div class="blob"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="howto-container hidden">
+                <div class="howto-inner">
+                    <div class="howto-content">
+                        <h3 class="howto-title">
+                            Watch the YouTube tutorial on how to add Frost Algo
+                        </h3>
+
+                        <div class="howto-image"><img
+                                src="frostalgo-main/youtube.png"
+                                alt=""></div>
+                    </div>
+
+                    <div class="howto-background">
+                        <div class="blob" style="right: 0;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="howto-container hidden">
+                <div class="howto-inner">
+                    <div class="howto-content">
+                        <h3 class="howto-title">
+                            Boom! Trade freely with over 150+ customizable indicator settings.
+                        </h3>
+
+                        <div class="howto-image"><img
+                                src="frostalgo-main/settings.png"
+                                alt=""></div>
+                    </div>
+
+                    <div class="howto-background">
+                        <div class="blob" style="right: 50%; bottom: 0;"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="background">
+            <!-- <div class="wave"></div> -->
+            <svg fill="none" style="opacity: 0.5;" height="300px" width="300px" version="1.1" id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 489.6 489.6"
+                xml:space="preserve">
+                <g>
+                    <g>
+                        <path stroke="var(--text)" stroke-width="0.5" d="M470.758,288L470.758,288l-77.9,34.2l-128.7-77.2l128.7-77.2l77.9,34.2c1.3,0.6,2.7,0.8,4,0.8c3.8,0,7.5-2.2,9.2-6
+			c2.2-5.1-0.1-11-5.1-13.2l-64.9-28.5l45.2-27.1c4.7-2.8,6.3-9,3.4-13.7c-2.9-4.7-9-6.3-13.7-3.4l-46.1,27.7l7.5-70.2
+			c0.6-5.5-3.4-10.4-8.9-11s-10.4,3.4-11,8.9l-9.1,85.2l-126.4,75.9V77.5l69.2-49.1c4.5-3.2,5.6-9.4,2.4-13.9s-9.4-5.6-13.9-2.4
+			l-57.6,40.9V10c0-5.5-4.5-10-10-10s-10,4.5-10,10v42.5l-57.7-40.5c-4.5-3.2-10.8-2.1-13.9,2.4c-3.2,4.5-2.1,10.8,2.4,13.9
+			l69.1,48.5v150.4l-127.2-76.4l-8.2-84.7c-0.5-5.5-5.4-9.5-10.9-9s-9.5,5.4-9,10.9l6.8,69.9l-45.5-27.3c-4.7-2.8-10.9-1.3-13.7,3.4
+			c-2.8,4.7-1.3,10.9,3.4,13.7l45,27l-64.7,28.7c-5,2.2-7.3,8.1-5.1,13.2c1.7,3.7,5.3,6,9.1,6c1.4,0,2.7-0.3,4-0.9l77.5-34.4
+			l129,77.4l-129,77.4l-77.5-34.4c-5.1-2.2-11,0-13.2,5.1c-2.2,5,0,11,5.1,13.2l64.7,28.7l-45,27c-4.7,2.8-6.3,9-3.4,13.7
+			c1.9,3.1,5.2,4.9,8.6,4.9c1.8,0,3.5-0.5,5.1-1.4l45.5-27.3l-6.8,69.9c-0.5,5.5,3.5,10.4,9,10.9c0.3,0,0.7,0,1,0
+			c5.1,0,9.4-3.9,9.9-9l8.2-84.7l127.2-76.4v154.8l-68.8,43.9c-4.7,3-6,9.2-3.1,13.8c1.9,3,5.1,4.6,8.4,4.6c1.8,0,3.7-0.5,5.4-1.6
+			l58-37v38.8c0,5.5,4.5,10,10,10s10-4.5,10-10v-39.2l58,37.4c4.6,3,10.8,1.7,13.8-3c3-4.7,1.7-10.8-3-13.8l-68.7-44V262.6
+			l126.4,75.9l9.1,85.2c0.5,5.1,4.9,8.9,9.9,8.9c0.4,0,0.7,0,1.1-0.1c5.5-0.6,9.5-5.5,8.9-11l-7.5-70.2l46.1,27.7
+			c1.6,1,3.4,1.4,5.1,1.4c3.4,0,6.7-1.7,8.6-4.9c2.8-4.7,1.3-10.9-3.4-13.7l-45.2-27.1l64.9-28.5c5.1-2.2,7.4-8.1,5.1-13.2
+			C481.658,288.1,475.758,285.8,470.758,288z" />
+                    </g>
+                </g>
+            </svg>
+            <svg fill="none" style="opacity: 0.5; margin-left: 60vw;" height="300px" width="300px" version="1.1"
+                id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 489.6 489.6" xml:space="preserve">
+                <g>
+                    <g>
+                        <path stroke="var(--text)" stroke-width="0.5" d="M470.758,288L470.758,288l-77.9,34.2l-128.7-77.2l128.7-77.2l77.9,34.2c1.3,0.6,2.7,0.8,4,0.8c3.8,0,7.5-2.2,9.2-6
+			c2.2-5.1-0.1-11-5.1-13.2l-64.9-28.5l45.2-27.1c4.7-2.8,6.3-9,3.4-13.7c-2.9-4.7-9-6.3-13.7-3.4l-46.1,27.7l7.5-70.2
+			c0.6-5.5-3.4-10.4-8.9-11s-10.4,3.4-11,8.9l-9.1,85.2l-126.4,75.9V77.5l69.2-49.1c4.5-3.2,5.6-9.4,2.4-13.9s-9.4-5.6-13.9-2.4
+			l-57.6,40.9V10c0-5.5-4.5-10-10-10s-10,4.5-10,10v42.5l-57.7-40.5c-4.5-3.2-10.8-2.1-13.9,2.4c-3.2,4.5-2.1,10.8,2.4,13.9
+			l69.1,48.5v150.4l-127.2-76.4l-8.2-84.7c-0.5-5.5-5.4-9.5-10.9-9s-9.5,5.4-9,10.9l6.8,69.9l-45.5-27.3c-4.7-2.8-10.9-1.3-13.7,3.4
+			c-2.8,4.7-1.3,10.9,3.4,13.7l45,27l-64.7,28.7c-5,2.2-7.3,8.1-5.1,13.2c1.7,3.7,5.3,6,9.1,6c1.4,0,2.7-0.3,4-0.9l77.5-34.4
+			l129,77.4l-129,77.4l-77.5-34.4c-5.1-2.2-11,0-13.2,5.1c-2.2,5,0,11,5.1,13.2l64.7,28.7l-45,27c-4.7,2.8-6.3,9-3.4,13.7
+			c1.9,3.1,5.2,4.9,8.6,4.9c1.8,0,3.5-0.5,5.1-1.4l45.5-27.3l-6.8,69.9c-0.5,5.5,3.5,10.4,9,10.9c0.3,0,0.7,0,1,0
+			c5.1,0,9.4-3.9,9.9-9l8.2-84.7l127.2-76.4v154.8l-68.8,43.9c-4.7,3-6,9.2-3.1,13.8c1.9,3,5.1,4.6,8.4,4.6c1.8,0,3.7-0.5,5.4-1.6
+			l58-37v38.8c0,5.5,4.5,10,10,10s10-4.5,10-10v-39.2l58,37.4c4.6,3,10.8,1.7,13.8-3c3-4.7,1.7-10.8-3-13.8l-68.7-44V262.6
+			l126.4,75.9l9.1,85.2c0.5,5.1,4.9,8.9,9.9,8.9c0.4,0,0.7,0,1.1-0.1c5.5-0.6,9.5-5.5,8.9-11l-7.5-70.2l46.1,27.7
+			c1.6,1,3.4,1.4,5.1,1.4c3.4,0,6.7-1.7,8.6-4.9c2.8-4.7,1.3-10.9-3.4-13.7l-45.2-27.1l64.9-28.5c5.1-2.2,7.4-8.1,5.1-13.2
+			C481.658,288.1,475.758,285.8,470.758,288z" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <div class="section" id="features">
+        <h1 class="title hidden">Features</h1>
+        <style>
+            .feature-card {
+                background: var(--mainl);
+                border-radius: 10px;
+                cursor: pointer;
+                display: flex;
+                height: 260px;
+                flex-direction: column;
+                position: relative;
+                width: 300px;
+            }
+
+            @media screen and (max-width:762px) {
+                .feature-cards {
+                    display: flex;
+                    padding: 112px;
+                    flex-direction: column;
+                    gap: 52px;
+                    justify-content: center;
+                }
+
+                .feature-card {
+
+                    width: 100%;
+                }
+            }
+
+            @media screen and (min-width:762px) {
+                .feature-cards {
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding: 52px;
+                    gap: 52px;
+                    justify-content: center;
+                }
+            }
+
+
+
+            .feature-card-content {
+                background: var(--maind);
+                border-radius: inherit;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                inset: 1px;
+                padding: 10px;
+                position: absolute;
+                z-index: 2;
+                display: grid;
+                grid-template-rows: auto min-content min-content;
+            }
+
+            .feature-cards:hover>.feature-card::after {
+                opacity: 1;
+            }
+
+            .feature-card:hover::before {
+                opacity: 1;
+            }
+
+            .feature-card::before,
+            .feature-card::after {
+                border-radius: inherit;
+                content: "";
+                height: 100%;
+                left: 0px;
+                opacity: 0;
+                position: absolute;
+                top: 0px;
+                transition: opacity 500ms;
+                width: 100%;
+            }
+
+            .feature-card::before {
+                background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+                        rgba(79, 149, 255, 0.06),
+                        transparent 40%);
+                z-index: 3;
+            }
+
+            .feature-card::after {
+                background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+                        rgba(117, 172, 255, 0.4),
+                        transparent 40%);
+                z-index: 1;
+            }
+
+            .feature-card-content .gradient-text-frost {
+                background: linear-gradient(5deg, var(--accent), var(--text));
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text;
+                font-size: 72px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+
+                justify-content: center;
+            }
+
+            .feature-card-content .feature-title {
+                text-align: center;
+                font-weight: 200;
+                font-size: 1.5em;
+            }
+        </style>
+        <div class="feature-cards">
+            <div class="feature-card hidden">
+                <div class="feature-card-content">
+                    <i class="gradient-text-frost fa-solid fa-arrow-right-arrow-left"></i>
+                    <h3 class="feature-title">Buy/Sell</h3>
+                    <p class="feature-content subtitle"> Indicators for favorable purchase or sale opportunities in
+                        trading.
+                    </p>
+                </div>
+
+            </div>
+            <div class="feature-card hidden">
+                <div class="feature-card-content">
+                    <i class="gradient-text-frost fa-solid fa-shield"></i>
+                    <h3 class="feature-title">Counter Signals</h3>
+                    <p class="feature-content subtitle">Flags potential market direction shifts against prevailing
+                        trends.
+                    </p>
+                </div>
+
+            </div>
+            <div class="feature-card hidden">
+                <div class="feature-card-content">
+                    <i class="gradient-text-frost fa-brands fa-connectdevelop"></i>
+                    <h3 class="feature-title">TP/SL</h3>
+                    <p class="feature-content subtitle"> Set Take Profit (TP) and Stop Loss (SL) levels for trades.
+                    </p>
+                </div>
+
+            </div>
+            <div class="feature-card hidden">
+                <div class="feature-card-content">
+                    <i class="gradient-text-frost fa-solid fa-square-poll-vertical"></i>
+                    <h3 class="feature-title">Trend Lines</h3>
+                    <p class="feature-content subtitle"> Illustrate prevailing market directions for informed trading
+                        decisions. </p>
+                </div>
+
+            </div>
+            <div class="feature-card hidden">
+                <div class="feature-card-content">
+                    <i class="gradient-text-frost fa-solid fa-money-bill-trend-up"></i>
+                    <h3 class="feature-title">Internal Structure</h3>
+                    <p class="feature-content subtitle">Analyze price patterns within a timeframe for trading insights.
+                    </p>
+                </div>
+
+            </div>
+            <div class="feature-card hidden">
+                <div class="feature-card-content">
+                    <i class="gradient-text-frost fa-solid fa-triangle-exclamation"></i>
+                    <h3 class="feature-title">Fair Value Gaps</h3>
+                    <p class="feature-content subtitle">Recognize disparities between market price and intrinsic value.
+                    </p>
+                </div>
+
+            </div>
+            <div class="feature-card hidden">
+                <div class="feature-card-content">
+                    <i class="gradient-text-frost fa-solid fa-toolbox"></i>
+                    <h3 class="feature-title">Reversal Seeker</h3>
+                    <p class="feature-content subtitle">Pinpoint potential trend reversals for strategic trading
+                        actions.
+                    </p>
+                </div>
+
+            </div>
+            <div class="feature-card hidden">
+                <div class="feature-card-content">
+                    <i class="gradient-text-frost fa-solid fa-list-check"></i>
+                    <h3 class="feature-title">50+ Other Features</h3>
+                    <p class="feature-content subtitle">Diverse tools and insights to enhance trading strategies and
+                        decisions.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="background">
+            <div class="blob" style="top: 0; transform: translateX(-50%); opacity: 0.1;"></div>
+            <div class="blob" style="bottom: 0; right: 0; transform: translateX(50%); opacity: 0.1;"></div>
+            <!-- <img src="blob-scene-haikei.svg" alt="" class="bg-cover"> -->
+        </div>
+    </div>
+    <script>
+        document.getElementsByClassName("feature-cards")[0].onmousemove = e => {
+            for (const card of document.getElementsByClassName("feature-card")) {
+                const rect = card.getBoundingClientRect(),
+                    x = e.clientX - rect.left,
+                    y = e.clientY - rect.top;
+
+                card.style.setProperty("--mouse-x", `${x}px`);
+                card.style.setProperty("--mouse-y", `${y}px`);
+            };
+        }
+    </script>
+    <style>
+        .pricing-option {
+            background: var(--maind-t);
+            padding: 24px 42px;
+            display: grid;
+            backdrop-filter: blur(50px);
+            border-radius: 24px;
+            gap: 24px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 32px;
+        }
+
+        .pricing-option .tag {
+            display: flex;
+            justify-content: center;
+        }
+
+        .pricing-option .tag p {
+            background: var(--maind);
+            padding: 4px 24px;
+            border-radius: 24px;
+            border: solid var(--mainll) 1px;
+        }
+
+        .pricing-option .pricing {
+            justify-content: center;
+            display: grid;
+            text-align: center;
+        }
+
+        .pricing-option .pricing h3 {
+            font-size: 3em;
+        }
+
+        .pricing-option .pricing strong {
+            font-weight: 500;
+        }
+
+        @media screen and (max-width:762px) {
+            .pricings {
+                display: flex;
+                justify-content: center;
+                flex-flow: column;
+                gap: 52px;
+                padding: 52px;
+            }
+        }
+
+        @media screen and (min-width:762px) {
+            .pricings {
+                display: grid;
+                justify-content: center;
+                grid-template-columns: auto auto auto auto;
+                /* flex-flow: column; */
+                gap: 52px;
+            }
+        }
+
+        .pricing-features {
+            display: grid;
+            gap: 6px;
+            margin: 0 12px;
+        }
+
+        .pricing-feature {
+            border-bottom: 1px var(--mainll) solid;
+            padding: 12px 0;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .pricing-feature .fa-solid {
+            border: var(--accent) solid 1.5px;
+            padding: 5px 6px;
+            color: var(--accent);
+            border-radius: 100%;
+        }
+
+        .action-button {
+            display: flex;
+            gap: 12px;
+            font-weight: 500;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
+            border-radius: 24px;
+            color: var(--maindd) !important;
+            border-color: var(--accent);
+            padding: 6px 24px;
+        }
+
+        .action-button:hover {
+            background: var(--maindd);
+            color: var(--accent) !important;
+        }
+    </style>
+    <div class="section no-mask" id="pricing">
+        <div class="section-content pricings">
+            <div class="pricing-option hidden">
+                <div class="tag">
+                    <p>1 month</p>
+                </div>
+
+                <div class="pricing">
+                    <h3><strong class="gradient-text">$</strong>49.99</h3>
+                    <p class="subtitle">a Month</p>
+                </div>
+                <div class="pricing-feature-container ">
+                    <!-- <div class="pricing-feature-title">Features</div> -->
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>One-Month Access</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>24/7 Support</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>Frequent Updates</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>Discord Community
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <button class="action-button"
+                    onclick="window.open('https://frostalgo.mysellix.io/product/frost-algo-1-month')">
+                    Get access <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="pricing-option hidden">
+                <div class="tag">
+                    <p>3 months</p>
+                </div>
+
+                <div class="pricing">
+                    <h3><strong class="gradient-text">$</strong>99.99</h3>
+                    <p class="subtitle">3 Months</p>
+                </div>
+                <div class="pricing-feature-container">
+                    <!-- <div class="pricing-feature-title">Features</div> -->
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>3 Month Access</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>24/7 Support</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>Frequent Updates</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>Discord Community
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <button class="action-button"
+                    onclick="window.open('https://frostalgo.mysellix.io/product/frost-algo-3-months')">
+                    Get access <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="pricing-option hidden">
+                <div class="tag">
+                    <p>1 year</p>
+                </div>
+
+                <div class="pricing">
+                    <h3><strong class="gradient-text">$</strong>249.99</h3>
+                    <p class="subtitle">1 year</p>
+                </div>
+                <div class="pricing-feature-container">
+                    <!-- <div class="pricing-feature-title">Features</div> -->
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>One-Year Access</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>24/7 Support</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>Frequent Updates</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>Discord Community
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <button class="action-button"
+                    onclick="window.open('https://frostalgo.mysellix.io/product/frost-algo-1-year')">
+                    Get access <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="pricing-option hidden">
+                <div class="tag">
+                    <p>lifetime</p>
+                </div>
+
+                <div class="pricing">
+                    <h3><strong class="gradient-text">$</strong>349.99</h3>
+                    <p class="subtitle">lifetime</p>
+                </div>
+                <div class="pricing-feature-container">
+                    <!-- <div class="pricing-feature-title">Features</div> -->
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>Lifetime Access</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>24/7 Support</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>Frequent Updates</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fa-solid fa-check"></i>
+                            <p>Discord Community
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <button class="action-button"
+                    onclick="window.open('https://frostalgo.mysellix.io/product/frost-algo-lifetime')">
+                    Get access <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        <div class="seperator">
+
+        </div>
+        <div class="background">
+            <div class="blob" style="top: 0;"></div>
+            <div class="blob" style="bottom: 30%; right: 0;"></div>
+            <img src="blob-scene-haikei.svg" alt="" class="bg-cover">
+            <svg fill="none" style="opacity: 0.5;" height="300px" width="300px" version="1.1" id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 489.6 489.6"
+                xml:space="preserve">
+                <g>
+                    <g>
+                        <path stroke="var(--text)" stroke-width="0.5" d="M470.758,288L470.758,288l-77.9,34.2l-128.7-77.2l128.7-77.2l77.9,34.2c1.3,0.6,2.7,0.8,4,0.8c3.8,0,7.5-2.2,9.2-6
+			c2.2-5.1-0.1-11-5.1-13.2l-64.9-28.5l45.2-27.1c4.7-2.8,6.3-9,3.4-13.7c-2.9-4.7-9-6.3-13.7-3.4l-46.1,27.7l7.5-70.2
+			c0.6-5.5-3.4-10.4-8.9-11s-10.4,3.4-11,8.9l-9.1,85.2l-126.4,75.9V77.5l69.2-49.1c4.5-3.2,5.6-9.4,2.4-13.9s-9.4-5.6-13.9-2.4
+			l-57.6,40.9V10c0-5.5-4.5-10-10-10s-10,4.5-10,10v42.5l-57.7-40.5c-4.5-3.2-10.8-2.1-13.9,2.4c-3.2,4.5-2.1,10.8,2.4,13.9
+			l69.1,48.5v150.4l-127.2-76.4l-8.2-84.7c-0.5-5.5-5.4-9.5-10.9-9s-9.5,5.4-9,10.9l6.8,69.9l-45.5-27.3c-4.7-2.8-10.9-1.3-13.7,3.4
+			c-2.8,4.7-1.3,10.9,3.4,13.7l45,27l-64.7,28.7c-5,2.2-7.3,8.1-5.1,13.2c1.7,3.7,5.3,6,9.1,6c1.4,0,2.7-0.3,4-0.9l77.5-34.4
+			l129,77.4l-129,77.4l-77.5-34.4c-5.1-2.2-11,0-13.2,5.1c-2.2,5,0,11,5.1,13.2l64.7,28.7l-45,27c-4.7,2.8-6.3,9-3.4,13.7
+			c1.9,3.1,5.2,4.9,8.6,4.9c1.8,0,3.5-0.5,5.1-1.4l45.5-27.3l-6.8,69.9c-0.5,5.5,3.5,10.4,9,10.9c0.3,0,0.7,0,1,0
+			c5.1,0,9.4-3.9,9.9-9l8.2-84.7l127.2-76.4v154.8l-68.8,43.9c-4.7,3-6,9.2-3.1,13.8c1.9,3,5.1,4.6,8.4,4.6c1.8,0,3.7-0.5,5.4-1.6
+			l58-37v38.8c0,5.5,4.5,10,10,10s10-4.5,10-10v-39.2l58,37.4c4.6,3,10.8,1.7,13.8-3c3-4.7,1.7-10.8-3-13.8l-68.7-44V262.6
+			l126.4,75.9l9.1,85.2c0.5,5.1,4.9,8.9,9.9,8.9c0.4,0,0.7,0,1.1-0.1c5.5-0.6,9.5-5.5,8.9-11l-7.5-70.2l46.1,27.7
+			c1.6,1,3.4,1.4,5.1,1.4c3.4,0,6.7-1.7,8.6-4.9c2.8-4.7,1.3-10.9-3.4-13.7l-45.2-27.1l64.9-28.5c5.1-2.2,7.4-8.1,5.1-13.2
+			C481.658,288.1,475.758,285.8,470.758,288z" />
+                    </g>
+                </g>
+            </svg>
+            <svg fill="none" style="opacity: 0.5; margin-left: 60vw;" height="300px" width="300px" version="1.1"
+                id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 489.6 489.6" xml:space="preserve">
+                <g>
+                    <g>
+                        <path stroke="var(--text)" stroke-width="0.5" d="M470.758,288L470.758,288l-77.9,34.2l-128.7-77.2l128.7-77.2l77.9,34.2c1.3,0.6,2.7,0.8,4,0.8c3.8,0,7.5-2.2,9.2-6
+			c2.2-5.1-0.1-11-5.1-13.2l-64.9-28.5l45.2-27.1c4.7-2.8,6.3-9,3.4-13.7c-2.9-4.7-9-6.3-13.7-3.4l-46.1,27.7l7.5-70.2
+			c0.6-5.5-3.4-10.4-8.9-11s-10.4,3.4-11,8.9l-9.1,85.2l-126.4,75.9V77.5l69.2-49.1c4.5-3.2,5.6-9.4,2.4-13.9s-9.4-5.6-13.9-2.4
+			l-57.6,40.9V10c0-5.5-4.5-10-10-10s-10,4.5-10,10v42.5l-57.7-40.5c-4.5-3.2-10.8-2.1-13.9,2.4c-3.2,4.5-2.1,10.8,2.4,13.9
+			l69.1,48.5v150.4l-127.2-76.4l-8.2-84.7c-0.5-5.5-5.4-9.5-10.9-9s-9.5,5.4-9,10.9l6.8,69.9l-45.5-27.3c-4.7-2.8-10.9-1.3-13.7,3.4
+			c-2.8,4.7-1.3,10.9,3.4,13.7l45,27l-64.7,28.7c-5,2.2-7.3,8.1-5.1,13.2c1.7,3.7,5.3,6,9.1,6c1.4,0,2.7-0.3,4-0.9l77.5-34.4
+			l129,77.4l-129,77.4l-77.5-34.4c-5.1-2.2-11,0-13.2,5.1c-2.2,5,0,11,5.1,13.2l64.7,28.7l-45,27c-4.7,2.8-6.3,9-3.4,13.7
+			c1.9,3.1,5.2,4.9,8.6,4.9c1.8,0,3.5-0.5,5.1-1.4l45.5-27.3l-6.8,69.9c-0.5,5.5,3.5,10.4,9,10.9c0.3,0,0.7,0,1,0
+			c5.1,0,9.4-3.9,9.9-9l8.2-84.7l127.2-76.4v154.8l-68.8,43.9c-4.7,3-6,9.2-3.1,13.8c1.9,3,5.1,4.6,8.4,4.6c1.8,0,3.7-0.5,5.4-1.6
+			l58-37v38.8c0,5.5,4.5,10,10,10s10-4.5,10-10v-39.2l58,37.4c4.6,3,10.8,1.7,13.8-3c3-4.7,1.7-10.8-3-13.8l-68.7-44V262.6
+			l126.4,75.9l9.1,85.2c0.5,5.1,4.9,8.9,9.9,8.9c0.4,0,0.7,0,1.1-0.1c5.5-0.6,9.5-5.5,8.9-11l-7.5-70.2l46.1,27.7
+			c1.6,1,3.4,1.4,5.1,1.4c3.4,0,6.7-1.7,8.6-4.9c2.8-4.7,1.3-10.9-3.4-13.7l-45.2-27.1l64.9-28.5c5.1-2.2,7.4-8.1,5.1-13.2
+			C481.658,288.1,475.758,285.8,470.758,288z" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <div class="section">
+        <style>
+            .faq-questions {
+                display: grid;
+                gap: 12px;
+
+                padding: 24px 42px 24px 24px;
+
+            }
+
+            @media screen and (min-width:762px) {
+                .faq-questions {
+                    grid-template-columns: 50% 50%;
+                }
+            }
+
+            .faq {
+                display: flex;
+                gap: 24px;
+                background: var(--maind-t);
+                border: solid var(--mainll) 1px;
+                padding: 24px;
+                border-radius: 12px;
+                align-items: center;
+            }
+
+            .faq h3 {
+                font-weight: 600;
+                font-size: 1.5em;
+            }
+
+            .faq .fa-solid {
+                padding: 12px 12px;
+                border-radius: 8px;
+                border: solid var(--mainll) 1px;
+                background: var(--main);
+            }
+
+            .faq .full {
+                border: none;
+                background: none;
+                margin-left: auto;
+            }
+        </style>
+        <div class="faq-questions">
+            <div class="faq">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <div class="content">
+                    <h3>What happens after I purchase?</h3>
+                    <p class="answer">
+                        After you purchase our product, you will have to wait around 2-12 hours for your indicator
+                        access to
+                        be added to your tradingView account
+                    </p>
+                </div>
+                <i class="fa-solid fa-chevron-down full"></i>
+            </div>
+            <div class="faq">
+                <i class="fa-solid fa-shop"></i>
+                <div class="content">
+                    <h3>What markets can I use it with?</h3>
+                    <p class="answer">
+                        Frost Algo works on any market available on TradingView, including stocks, crypto, forex,
+                        futures, and commodities.
+                    </p>
+                </div>
+                <i class="fa-solid fa-chevron-down full"></i>
+            </div>
+            <div class="faq">
+                <i class="fa-solid fa-signal"></i>
+                <div class="content">
+                    <h3>Do FrostAlgo signals repaint?</h3>
+                    <p class="answer">
+                        No, all of our signals are real-time and non-repaint.
+                    </p>
+                </div>
+                <i class="fa-solid fa-chevron-down full"></i>
+            </div>
+            <div class="faq">
+                <i class="fa-solid fa-hand-peace"></i>
+                <div class="content">
+                    <h3>Can I win every trade using this?
+                    </h3>
+                    <p class="answer">
+                        Absolutely not. FrostAlgo provides you with a technical toolkit to give you an edge in the
+                        markets, but that does not mean you will win every trade.
+
+                        In fact, there is no such thing as any indicator or strategy that can guarantee you a certain %
+                        accuracy. On some backtests we’ve seen incredibly high win-rates, but past performance does not
+                        guarantee future results.
+                    </p>
+                </div>
+                <i class="fa-solid fa-chevron-down full"></i>
+            </div>
+            <div class="faq">
+                <i class="fa-solid fa-link"></i>
+                <div class="content">
+                    <h3>Does it work on MetaTrader 4/5?
+                    </h3>
+                    <p class="answer">
+                        Our indicators run exclusively on TradingView and do not support MT4/5.
+                    </p>
+                </div>
+                <i class="fa-solid fa-chevron-down full"></i>
+            </div>
+        </div>
+        <div class="background" style="pointer-events: none;">
+            <div style="left: 50%; top: 50%; transform: translate(-50%,-50%); background: var(--accent-3);"
+                class="blob"></div>
+        </div>
+    </div>
+    <script>
+        $(".answer").hide()
+        $(document).ready(function () {
+            $(".faq").click(function () {
+                console.log("afwae")
+                $(this).find(".answer").slideToggle();
+            });
+        });
+
+
+
+    </script>
+    <style>
+        .footer p {
+            width: 100%;
+            padding: 24px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 18px;
+
+        }
+
+        .footer {
+            background: var(--maind);
+        }
+    </style>
+    <div class="footer">
+        <p>© Frost Algo 2023. All Rights Reserved. Frost Algo and its affiliates are not registered financial advisors.
+            Frost Algo and its site is for educational purposes only and should not be construed as financial advise.
+        </p>
+    </div>
+
+
+</body>
+
+
+
+<script>$(document).ready(function () {
+        const container = $('.p-container');
+
+        function createParticle() {
+            const particle = $('<div class="particle"></div>');
+            container.append(particle);
+
+            const x = Math.random() * window.innerWidth;
+            const size = Math.random() * 20 + 5;
+            particle.css({
+                left: x + 'px',
+                width: size + 'px',
+                height: size + 'px',
+                animation: 'rise ' + (Math.random() * 5 + 3) + 's ease-in infinite',
+            });
+
+            setTimeout(function () {
+                particle.remove();
+            }, (Math.random() * 5000) + 3000);
+        }
+
+        setInterval(createParticle, 150);
+    });
+</script>
+<style>
+    .seperator {
+        height: 112px;
+    }
+
+    .particle {
+        position: absolute;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        opacity: 0;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    }
+
+    .background {
+        position: absolute;
+        top: 0;
+    }
+
+    .bg-cover {
+        width: 100%;
+        height: 100% !important;
+        object-fit: cover;
+        --mask: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 30%,
+                rgb(255, 255, 255) 100%, rgb(255, 255, 255) 0) 100% 50% / 100% 100% repeat-x;
+
+
+
+        -webkit-mask: var(--mask);
+        mask: var(--mask);
+    }
+
+    @media screen and (max-width:762px) {
+        .bg-cover {
+            display: none;
+        }
+    }
+
+    @keyframes rise {
+        to {
+            transform: translateY(-200px);
+            opacity: 0;
+        }
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: none;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--mainll);
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent);
+    }
+
+
+    .blob {
+        position: absolute;
+        width: 24em;
+        height: 24em;
+        background: var(--accent-2);
+        opacity: 0.5;
+        z-index: 499;
+        filter: blur(150px);
+    }
+
+    .section .sided {
+        display: grid;
+
+    }
+
+    .button-set {
+        display: flex;
+        gap: 1.5em;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .button-set .action {
+        background: var(--accent);
+        opacity: 1;
+        padding: 4px 24px;
+        border-radius: 24px;
+        color: var(--maindd);
+
+    }
+
+    .button-set .action:hover {
+        background: var(--maindd);
+        opacity: 1;
+        border: var(--text) solid 0.15em;
+        padding: 4px 24px;
+        border-radius: 24px;
+        color: var(--text);
+    }
+
+    .graphic {
+        position: relative;
+    }
+
+    .graphic img {
+        border-radius: 5px 20px 5px;
+        position: relative;
+        right: 0;
+        width: 100%;
+        /* transform: translateX(20%); */
+
+    }
+
+    button {
+        cursor: pointer;
+        border: solid transparent 0.15em;
+        transition: all 0.2s;
+    }
+
+    button:hover {
+        color: var(--accent);
+        text-shadow: 0 0 20px var(--accentg);
+    }
+
+    button .fa-solid,
+    button .fa-brands {
+        color: inherit;
+        margin-right: 4px;
+    }
+
+    @media screen and (max-width:762px) {}
+
+    @media screen and (min-width:762px) {
+        .section .sided {
+            grid-template-columns: 50% 50%;
+
+        }
+    }
+
+    .info {
+        padding: 32px;
+
+    }
+
+    .subtitle {
+        color: var(--text);
+        opacity: 0.7;
+        width: 100%;
+        font-size: 0.8em;
+        padding: 12px 32px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .section {
+        display: grid;
+        position: relative;
+        padding: 112px 0 175px 0;
+        width: 100vw;
+
+        overflow: hidden;
+    }
+
+    .no-mask {
+        -webkit-mask: none !important;
+        mask: none !important;
+    }
+
+    .section-content {
+        position: relative;
+        z-index: 500;
+    }
+
+    .background {
+
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        --mask: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 10%,
+                rgba(0, 0, 0, 0) 100%, rgba(0, 0, 0, 0) 0) 100% 50% / 100% 100% repeat-x;
+
+
+
+        -webkit-mask: var(--mask);
+        mask: var(--mask);
+        left: 0;
+
+    }
+
+
+    .wave {
+        background: url(wave.svg) repeat-x;
+        position: absolute;
+        top: -198px;
+        width: 6400px;
+        filter: blur(50px);
+        opacity: 0.2;
+        height: 198px;
+        animation: wave 5s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+        transform: translate3d(0, 0, 0);
+    }
+
+    .wave:nth-of-type(2) {
+        top: -175px;
+        animation: wave 24s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+        /* opacity: 1; */
+    }
+
+    @keyframes wave {
+        0% {
+            margin-left: 0;
+        }
+
+        100% {
+            margin-left: -1600px;
+        }
+    }
+
+    @keyframes swell {
+
+        0%,
+        100% {
+            transform: translate3d(0, -25px, 0);
+        }
+
+        50% {
+            transform: translate3d(0, 5px, 0);
+        }
+    }
+
+    body {
+        display: grid;
+    }
+
+    .content {
+        position: relative;
+    }
+
+    .graphic {}
+
+    .section h1 {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        font-size: 3em;
+
+        letter-spacing: 2px;
+    }
+
+    :root {
+        --main: #191B25;
+        --main-t: #191B2550;
+        --maind-t: #14161e80;
+        --mainl: #21232b;
+        --mainll: #2c2e35;
+        --maind: #171821;
+        --maindd: #14161e;
+        --text: #d8dce4;
+        --accent: #7dcbff;
+        --gold: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+            radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+        --accent-2: #3776c9;
+        --accent-3: #3739c9;
+        --accentg: #4AB5FD;
+    }
+
+    strong {
+        color: var(--accent);
+        text-shadow: 0px 0px 100px var(--accentg);
+        letter-spacing: normal;
+
+    }
+
+    html {
+        background: var(--main);
+        scroll-behavior: smooth;
+    }
+
+    * {
+        font-family: 'Poppins', sans-serif;
+        /* Box sizing */
+        -webkit-box-sizing: border-box;
+        /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;
+        /* Firefox, other Gecko */
+        box-sizing: border-box;
+        /* Opera/IE 8+ */
+        /* Prevent blue thingy */
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        /* boilerplate */
+        outline: none;
+        border: none;
+        background: none;
+        font-size: 103%;
+        color: var(--text);
+        padding: 0;
+
+        margin: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-weight: normal;
+    }
+</style>
+
+</html>
